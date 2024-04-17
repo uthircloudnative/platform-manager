@@ -47,6 +47,7 @@
             // Perform login logic here
             // If login is successful, redirect to another HTML file based on input login username
             var username = document.getElementById('username').value;
+            var baseUrl = window.location.hostname === "localhost" ? "" : "/platform-manager";
             if (username === "devuser") {
                 window.location.href = "/html/createReleaseEntry.html?username=" + username;
             } else {
