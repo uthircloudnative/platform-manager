@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Create Release Entry</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login</title>
+    <!--Google Fonts should be placed before our custom style sheet link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Coiny&family=Sono:wght@400;600&display=swap" rel="stylesheet">
+
+
+    <!-- To refer a CSS Style sheet-->
+    <link href="../style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Platform Manager</h1>
+        </header>
+        <main class="main">
+            <aside>
+                <ul>
+                    <li class="menu-list"><button class="btn btn-menu" onclick="location.href='#ReleaseManager'">Release
+                            Manager</button>
+                    </li>
+                    <li class="menu-list"><button class="btn btn-menu"
+                            onclick="location.href='#ApplicationBootstrap'">Application
+                            Bootstrap</button></li>
+                </ul>
+            </aside>
+
+
+            <div id="content">
+
+                <div id="ReleaseManager" class="release-entry-form">
+                    <div id="successMessage" style="color: green;">Test</div>
+                    <table style="border-collapse: collapse;">
+                        <tr>
+                            <th style="width: 10%; border: 1px solid white; padding: 5px; text-align: center;">Release
+                                ID</th>
+                            <th style="width: 15%; border: 1px solid white; padding: 5px; text-align: center;">
+                                Application Name</th>
+                            <th style="width: 15%; border: 1px solid white; padding: 5px; text-align: center;">
+                                Application Type</th>
+                            <th style="width: 15%; border: 1px solid white; padding: 5px; text-align: center;">Team Name
+                            </th>
+                            <th style="width: 30%; border: 1px solid white; padding: 5px; text-align: center;">Image
+                                Version</th>
+                            <th style="width: 10%; border: 1px solid white; padding: 5px; text-align: center;">Test
+                                Readiness
+                            </th>
+                            <th style="width: 10%; border: 1px solid white; padding: 5px; text-align: center;">QA Status
+                            </th>
+                            <th style="width: 10%; border: 1px solid white; padding: 5px; text-align: center;">BL Status
+                            </th>
+                            <th style="width: 10%; border: 1px solid white; padding: 5px; text-align: center;">
+                                Performance Status</th>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">
+                                <a id="modifyLink" href="/html/modifyReleaseEntry.html?username=qauser"
+                                    style="color: rgb(48, 157, 12);">1234</a>
+                            </td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">UserProfileService
+                            </td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">MicroService</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Blue</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center; white-space: nowrap;">
+                                release-24.04.01</td>
+                            <td id="testReady" style="border: 1px solid white; padding: 5px; text-align: center;">
+                            </td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Pending</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Pending</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Pending</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;"><a
+                                    href="/html/modifyReleaseEntry.html" style="color: rgb(48, 157, 12);">1235</a></td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">DemographicApi</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">API</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Blue</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">release-24.04.01</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Ready For Testing
+                            </td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Go</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Go</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Pending</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;"><a
+                                    href="/html/modifyReleaseEntry.html" style="color: rgb(48, 157, 12);">1236</a></td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">PaymentService</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">MicroService</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Green</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">release-24.04.01</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Ready For Testing
+                            </td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Go</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Pending</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Go</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;"><a
+                                    href="/html/modifyReleaseEntry.html" style="color: rgb(48, 157, 12);">1237</a></td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">OrderService</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">MicroApp</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Red</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">release-24.04.01</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Ready For Testing
+                            </td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Go</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Go</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Go</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;"><a
+                                    href="/html/modifyReleaseEntry.html" style="color: rgb(48, 157, 12);">1238</a></td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">GraphQLGateway</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">FedGateway</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Red</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">release-24.04.01</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Ready For Testing
+                            </td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Go</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Go</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Go</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;"><a
+                                    href="/html/modifyReleaseEntry.html" style="color: rgb(48, 157, 12);">1239</a></td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">AddressService</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">MicroService</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Red</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">release-24.04.01</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Ready For Testing
+                            </td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Go</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Go</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Go</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;"><a
+                                    href="/html/modifyReleaseEntry.html" style="color: rgb(48, 157, 12);">1240</a></td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">AddressService</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">MicroService</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Red</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">release-24.04.01</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Ready For Testing
+                            </td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Go</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Go</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Go</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">1241</a></td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">UserDashboard</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">MicroApp</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Red</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">release-24.04.01</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">Ready For Testing
+                            </td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">NoGo</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">NoGo</td>
+                            <td style="border: 1px solid white; padding: 5px; text-align: center;">NoGo</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+    </div>
+    </div>
+    </div>
+
+    </div>
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            console.log("Entered into event listner: ");
+            // Set Release Manager as the default page
+            document.getElementById("ReleaseManager").style.display = "block";
+
+            // Get the value from the URL
+            var urlParams = new URLSearchParams(window.location.search);
+            var serviceName = urlParams.get('serviceName');
+            var releaseId = urlParams.get('releaseId');
+            var username = urlParams.get('username');
+
+            //Get the testReady td from id.
+            var testReadyTd = document.getElementById("testReady");
+            var testReadyValue = urlParams.get("testReady");
+
+            console.log("test Ready Value: " + testReadyValue);
+
+            //Set the testReady value to the td element.
+            testReadyTd.textContent = testReadyValue;
+
+            console.log("serviceName: " + serviceName);
+            console.log("releaseId: " + releaseId);
+
+
+            var successMessageDiv = document.getElementById("successMessage");
+            var message = "Release entry " + releaseId + " is updated successfully for " + serviceName;
+            successMessageDiv.textContent = message;
+
+            var modifyLink = document.getElementById("modifyLink");
+
+            console.log("userName: " + username);
+
+            modifyLink.href = "/html/modifyReleaseEntry.html?username=" + username;
+
+            // var form = document.getElementById("release-entry-form");
+            // if (form) {
+            //     form.addEventListener("submit", function (event) {
+            //         event.preventDefault();
+            //         window.location.href = "/html/modifyReleaseEntry.html";
+            //     });
+            // } else {
+            //     console.error("Form with ID 'release-entry-form' not found");
+            // }
+
+        });
+    </script>
+    </main>
+    </div>
+
+</body>
+
+</html>

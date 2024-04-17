@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Modify Release Entry</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login</title>
+    <!--Google Fonts should be placed before our custom style sheet link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Coiny&family=Sono:wght@400;600&display=swap" rel="stylesheet">
+
+
+    <!-- To refer a CSS Style sheet-->
+    <link href="../style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Platform Manager</h1>
+        </header>
+        <main class="main">
+
+            <aside>
+                <ul>
+                    <li class="menu-list">
+                        <details>
+                            <summary>Release Manager</summary>
+                            <ul>
+                                <li><a href="#ReleaseEntry" onclick="handleClick('ReleaseEntry')">Release Entry</a></li>
+                                <li><a href="#ReleaseCalendar" onclick="handleClick('ReleaseCalendar')">Release
+                                        Calendar</a></li>
+                                <li><a href="#ReleaseList" onclick="handleClick('ReleaseList')">Task List</a></li>
+                                <li><a href="#ReleasePlan" onclick="handleClick('ReleasePlan')">Release Plan</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li class="menu-list">
+                        <details>
+                            <summary>Application Bootstrap</summary>
+                            <ul>
+                                <li><a href="#ApplicationBootstrap1">Bootstrap</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                </ul>
+            </aside>
+
+            <div id="content">
+                <div id="ReleaseManager">
+                    <form class="release-calendar-form" id="release-calendar">
+                        <div class="form-div-group">
+                            <h2 class="form-heading" style="text-align: center;">Release Calendar</h2>
+                            <hr class="line" style="border-color: rgb(249, 247, 247); width: 100%;">
+                        </div>
+
+                        <div class="form-div-group">
+                            <label for="months">Release :</label>
+                            <select id="months" name="months">
+                                <option value="January">January</option>
+                                <option value="February">February</option>
+                                <option value="March">March</option>
+                                <option value="April">April</option>
+                                <option value="May">May</option>
+                                <option value="June">June</option>
+                                <option value="July">July</option>
+                                <option value="August">August</option>
+                                <option value="September">September</option>
+                                <option value="October">October</option>
+                                <option value="November">November</option>
+                                <option value="December">December</option>
+                            </select>
+                        </div>
+
+                        <table id="dynamic-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 10%; border: 1px solid white; padding: 5px; text-align: center;">
+                                        Release Item</th>
+                                    <th style="width: 10%; border: 1px solid white; padding: 5px; text-align: center;">
+                                        Date</th>
+                                    <th style="width: 10%; border: 1px solid white; padding: 5px; text-align: center;">
+                                        Comments</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+
+            <script>
+                // Add your JavaScript code here
+                document.addEventListener('DOMContentLoaded', function () {
+
+                    var year = 2024;
+                    var month = 4;
+
+                    var table = document.getElementById('dynamic-table');
+
+                    // Define the release items and their corresponding dates
+                    // var releaseItems = [
+                    //     { name: 'Code Freeze', getDate: getFourthFridayOfLastMonth },
+                    //     { name: 'BL Test Start', getDate: getFirstMondayOfCurrentMonth },
+                    //     { name: 'BL SignOff', getDate: getSecondFridayOfCurrentMonth },
+                    //     { name: 'Go NoGo', getDate: getThirdMondayOfCurrentMonth },
+                    //     { name: 'Pre-Prod', getDate: getThirdWednesdayOfCurrentMonth },
+                    //     { name: 'Prod', getDate: getThirdFridayOfCurrentMonth },
+                    // ];
+
+                    var releaseItems = [
+                        { name: 'Code Freeze', getDate: function () { return getFourthFridayOfLastMonth(year, month); } },
+                        { name: 'BL Test Start', getDate: function () { return getFirstMondayAfterCodeFreeze(year, month); } },
+                        { name: 'BL SignOff', getDate: function () { return getSecondFridayOfCurrentMonth(year, month); } },
+                        { name: 'Go NoGo', getDate: function () { return getThirdMondayOfCurrentMonth(year, month); } },
+                        { name: 'Pre-Prod', getDate: function () { return getThirdWednesdayOfCurrentMonth(year, month); } },
+                        { name: 'Prod', getDate: function () { return getThirdFridayOfCurrentMonth(year, month); } },
+                        // Add the rest of your release items here
+                    ];
+
+                    // Add a row for each release item
+                    for (var i = 0; i < releaseItems.length; i++) {
+                        var row = table.insertRow(-1);
+                        row.className = 'dynamic-row';
+
+                        var cell1 = row.insertCell(0);
+                        cell1.className = 'dynamic-cell';
+                        cell1.textContent = releaseItems[i].name;
+
+                        var cell2 = row.insertCell(1);
+                        cell2.className = 'dynamic-cell';
+                        var dateInput = document.createElement('input');
+                        dateInput.type = 'date';
+                        dateInput.value = releaseItems[i].getDate().toISOString().split('T')[0];
+                        cell2.appendChild(dateInput);
+
+                        var cell3 = row.insertCell(2);
+                        cell3.className = 'dynamic-cell';
+                        //var commentInput = document.createElement('input');
+                        var commentInput = document.createElement('textarea');
+                        commentInput.className = 'input-cell';
+                        cell3.appendChild(commentInput);  // Add your comments here
+                    }
+                });
+
+                function getFourthFridayOfLastMonth(year, month) {
+                    var date = new Date(year, month - 1, 1);
+                    //date.setMonth(date.getMonth() - 1);
+                    //date.setDate(1);
+                    while (date.getDay() !== 5 || getWeekOfMonth(date) !== 4) {
+                        date.setDate(date.getDate() + 1);
+                    }
+                    return date;
+                }
+
+                function getFirstMondayAfterCodeFreeze(year, month) {
+                    //var date = new Date();
+                    //date.setDate(1);
+                    var date = getFourthFridayOfLastMonth(year, month);
+                    console.log(date);
+                    date.setDate(date.getDate() + 3);
+
+                    return date;
+                }
+
+                function getSecondFridayOfCurrentMonth(year, month) {
+                    //var date = new Date();
+                    //date.setDate(1);
+                    var date = new Date(year, month, 1);
+                    while (date.getDay() !== 5 || getWeekOfMonth(date) !== 2) {
+                        date.setDate(date.getDate() + 1);
+                    }
+                    return date;
+                }
+
+                function getThirdMondayOfCurrentMonth(year, month) {
+                    //var date = new Date();
+                    //date.setDate(1);
+                    var date = new Date(year, month, 1);
+                    while (date.getDay() !== 1 || getWeekOfMonth(date) !== 3) {
+                        date.setDate(date.getDate() + 1);
+                    }
+                    return date;
+                }
+
+                function getThirdWednesdayOfCurrentMonth(year, month) {
+                    //var date = new Date();
+                    //date.setDate(1);
+                    var date = new Date(year, month, 1);
+                    while (date.getDay() !== 3 || getWeekOfMonth(date) !== 3) {
+                        date.setDate(date.getDate() + 1);
+                    }
+                    return date;
+                }
+
+                function getThirdFridayOfCurrentMonth(year, month) {
+                    //var date = new Date();
+                    //date.setDate(1);
+                    var date = new Date(year, month, 1);
+                    while (date.getDay() !== 5 || getWeekOfMonth(date) !== 3) {
+                        date.setDate(date.getDate() + 1);
+                    }
+                    return date;
+                }
+
+                function getWeekOfMonth(date) {
+                    var firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
+                    return Math.ceil((date.getDate() + firstDayOfMonth.getDay()) / 7);
+                }
+            </script>
+        </main>
+    </div>
+
+</body>
+
+</html>

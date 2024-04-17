@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Modify Release Entry</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login</title>
+    <!--Google Fonts should be placed before our custom style sheet link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Coiny&family=Sono:wght@400;600&display=swap" rel="stylesheet">
+
+
+    <!-- To refer a CSS Style sheet-->
+    <link href="../style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Platform Manager</h1>
+        </header>
+        <main class="main">
+
+            <aside>
+                <ul>
+                    <li class="menu-list">
+                        <details>
+                            <summary>Release Manager</summary>
+                            <ul>
+                                <li><a href="#ReleaseEntry" onclick="handleClick('ReleaseEntry')">Release Entry</a></li>
+                                <li><a href="#ReleaseCalendar" onclick="handleClick('ReleaseCalendar')">Release
+                                        Calendar</a></li>
+                                <li><a href="#ReleaseList" onclick="handleClick('ReleaseList')">Task List</a></li>
+                                <li><a href="#ReleasePlan" onclick="handleClick('ReleasePlan')">Release Plan</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li class="menu-list">
+                        <details>
+                            <summary>Application Bootstrap</summary>
+                            <ul>
+                                <li><a href="#ApplicationBootstrap1">Bootstrap</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                </ul>
+            </aside>
+
+            <div id="content">
+                <div id="ReleaseManager">
+                    <form class="release-tasklist-form" id="release-tasklist">
+                        <div class="form-div-group">
+                            <h2 class="form-heading" style="text-align: center;">Release Task List</h2>
+                            <hr class="line" style="border-color: rgb(249, 247, 247); width: 100%;">
+                        </div>
+
+                        <div class="form-div-group">
+                            <label for="months">Release :</label>
+                            <select id="months" name="months">
+                                <option value="January">January</option>
+                                <option value="February">February</option>
+                                <option value="March">March</option>
+                                <option value="April">April</option>
+                                <option value="May">May</option>
+                                <option value="June">June</option>
+                                <option value="July">July</option>
+                                <option value="August">August</option>
+                                <option value="September">September</option>
+                                <option value="October">October</option>
+                                <option value="November">November</option>
+                                <option value="December">December</option>
+                            </select>
+                        </div>
+
+                        <table id="dynamic-table" style="border-collapse: collapse;">
+                            <thead>
+                                <tr>
+                                    <th style="width: 10%; border: 1px solid white; padding: 5px; text-align: center;">
+                                        Task Name</th>
+                                    <th style="width: 10%; border: 1px solid white; padding: 5px; text-align: center;">
+                                        Required</th>
+                                    <th style="width: 10%; border: 1px solid white; padding: 5px; text-align: center;">
+                                        Comments</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td
+                                        style="width: 10%; border: 1px solid white; padding: 5px; text-align: center; white-space: nowrap;">
+                                        Secure Credential Update</td>
+                                    <th style="width: 10%; border: 1px solid white; padding: 5px; text-align: center;">
+                                        <input type="checkbox" name="required" id="required"> Required
+                                    </th>
+                                    <td style="width: 10%; border: 1px solid white; padding: 5px; text-align: center;">
+                                        <textarea name="comments" id="comments" rows="3" cols="30"
+                                            style="background-color: inherit; width: 100%; color: white;"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 10%; border: 1px solid white; padding: 5px; text-align: center;">
+                                        Feature Flag Update</td>
+                                    <th style="width: 10%; border: 1px solid white; padding: 5px; text-align: center;">
+                                        <input type="checkbox" name="required" id="required"> Required
+                                    </th>
+                                    <td style="width: 10%; border: 1px solid white; padding: 5px; text-align: center;">
+                                        <textarea name="comments" id="comments" rows="3" cols="30"
+                                            style="background-color: inherit; width: 100%; color: white;"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 10%; border: 1px solid white; padding: 5px; text-align: center;">
+                                        Legacy Feature Update</td>
+                                    <th style="width: 10%; border: 1px solid white; padding: 5px; text-align: center;">
+                                        <input type="checkbox" name="required" id="required"> Required
+                                    </th>
+                                    <td style="width: 10%; border: 1px solid white; padding: 5px; text-align: center;">
+                                        <textarea name="comments" id="comments" rows="3" cols="30"
+                                            style="background-color: inherit; width: 100%; color: white;"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 10%; border: 1px solid white; padding: 5px; text-align: center;">
+                                        DB Script Execution</td>
+                                    <th style="width: 10%; border: 1px solid white; padding: 5px; text-align: center;">
+                                        <input type="checkbox" name="required" id="required"> Required
+                                    </th>
+                                    <td style="width: 10%; border: 1px solid white; padding: 5px; text-align: center;">
+                                        <textarea name="comments" id="comments" rows="3" cols="30"
+                                            style="background-color: inherit; width: 100%; color: white;"></textarea>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="button-container">
+                            <input type="submit" value="Update">
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+            <script>
+                // Add your JavaScript code here
+
+
+            </script>
+        </main>
+    </div>
+
+</body>
+
+</html>

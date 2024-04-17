@@ -1,0 +1,304 @@
+* {
+   /*Boxing model representation*/
+   margin: 0px;
+   padding: 0px;
+   box-sizing: border-box;
+}
+
+body {
+    color: #fafaf9;
+    background-color: #292524;
+    font-family: "Sono", sans-serif;
+    
+
+    /*Element box model*/
+    padding: 80px 250px;
+
+}
+
+/* Main Layout */
+
+.container {
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.header {
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 20px
+}
+
+h1 {
+    font-size: 42px;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: "Coiny", sans-serif;
+    
+}
+
+/* Form */
+/* .login-form {
+    background-color: #44403c;
+    margin-bottom: 40px;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-radius: 16px;
+    
+}
+
+.login-form input {
+    background-color: #292524;
+    color: #1c1c1b;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+} */
+
+/* .login-form button {
+    background-color: #f76c6c;
+    color: #fafaf9;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+} */
+
+
+.login-form {
+
+    background-color: #44403c;
+    margin-bottom: 40px;
+    padding: 16px 32px;
+    gap: 16px;
+    border-radius: 16px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+    height: 70vh;
+    width: 80%;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    display: block;
+    margin: 10px 0;
+    background-color: #f9f9fa;
+
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    
+}
+
+.login-form input[type="submit"],
+.release-entry-form input[type="submit"],
+.release-entry-form input[type="reset"],
+.release-tasklist-form input[type="submit"],
+.release-plan-form input[type="submit"],
+.modify-release-entry-form input[type="submit"]{
+    
+    background-color: #f53333;
+    color: #fafaf9;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+
+.login-help {
+    align-self: center;
+    text-decoration: underline;
+    color: rgb(246, 246, 249); /* Change this to your preferred link color */
+}
+
+.menu-list {
+    margin-bottom: 16px;
+    list-style: none;
+    text-align: left;
+    
+    background-color: #42413e;
+
+
+    border-radius: 100px;
+   
+    
+}
+
+.btn {
+    border: none;
+    font-family: "Coiny", sans-serif;
+    line-height: 1;
+    text-transform: uppercase;
+    font-size: 17px;
+    padding: 16px 0 13px;
+    background-image: linear-gradient(135deg, #3b82f6, #ef4444, #16a34a, #eab308);
+    color: inherit; /* To tell inherit from partent as this button element won't inherit by deafult*/
+    border-radius: 100px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-right: auto; 
+}
+
+.btn-menu {
+    margin-bottom: 16px;
+    width: 100%; /*To occupy full space of the column width*/
+}
+
+
+.release-entry-form,
+.release-calendar-form,
+.release-tasklist-form,
+.release-plan-form,
+.modify-release-entry-form {
+    font-size: 20px;
+    line-height: 1.4;
+    background-color: #44403c;
+    margin-bottom: 16px;
+
+    padding: 16px 24px;
+    display: flex;
+    flex-direction: column; /* This will stack the form elements vertically */
+    align-items: left;
+    gap: 24px;
+    border-radius: 16px;
+}
+
+
+
+/* When screen size go beyond 1200px apply below CSS styles */
+@media (max-width: 1200px){
+    .release-entry-form,
+    .modify-release-entry-form {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 12px;
+    }
+}
+
+.form-div-group {
+    margin: 10px 0; /* This will add 10px of margin to the top and bottom of the div */
+}
+
+.textarea-group {
+    display: flex;
+    align-items: center; /* This will vertically center the label */
+    gap: 10px; /* This will add some space between the label and the textarea */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+}
+
+.details {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: .5em .5em 0;
+    margin: .5em 0;
+}
+
+
+summary::-webkit-details-marker {
+            display: none;
+        }
+
+        /* Style the summary */
+summary {
+            cursor: pointer;
+            list-style: none;
+        }
+
+        /* Style the links */
+
+.menu-list ul li {
+    list-style-type: none;
+    text-align: left;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.menu-list ul li a {
+            color: #f9f5f5;
+            text-decoration: none;
+            white-space: nowrap;
+
+    margin-bottom: 1px;
+    list-style: none;
+    text-align: left;
+    padding: 0 10px;
+        }
+
+.menu-list ul li a:hover {
+            text-decoration: underline;
+            
+        }
+
+aside {
+
+    font-size: 20px;
+    line-height: 1.4;
+    background-color: #44403c;
+    margin-bottom: 16px;
+
+    padding: 16px 24px;
+    display: flex;
+    flex-direction: column; /* This will stack the form elements vertically */
+    align-items: left;
+    gap: 24px;
+    border-radius: 16px;
+}
+
+.dynamic-row {
+    
+    border: 1px solid white; 
+    padding: 5px; 
+    text-align: center
+}
+
+#dynamic-table tr {
+    border: 1px solid white;
+    padding: 5px;
+    text-align: center;
+}
+
+.dynamic-cell {
+    border: 1px solid white;
+    padding: 5px;
+    text-align: center;
+}
+
+.input-cell {
+    width: 100%; 
+    height: 100%;
+    border: none; 
+    background-color: transparent; 
+    box-sizing: border-box; 
+    color: white;
+}
+
+.radio-option {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.radio-option input,
+.radio-option label {
+    display: inline !important;
+}

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Create Release Entry</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login</title>
+    <!--Google Fonts should be placed before our custom style sheet link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Coiny&family=Sono:wght@400;600&display=swap" rel="stylesheet">
+
+
+    <!-- To refer a CSS Style sheet-->
+    <link href="../style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Platform Manager</h1>
+        </header>
+        <main class="main">
+            <aside>
+                <ul>
+                    <li class="menu-list">
+                        <details>
+                            <summary>Release Manager</summary>
+                            <ul>
+                                <li><a href="#ReleaseEntry" onclick="handleClick('ReleaseEntry')">Release Entry</a></li>
+                                <li><a href=" #ReleaseCalendar" onclick="handleClick('ReleaseCalendar')">Release
+                                        Calendar</a></li>
+                                <li><a href="#ReleaseList" onclick="handleClick('ReleaseTaskList')">Task List</a></li>
+                                <li><a href="#ReleasePlan" onclick="handleClick('ReleasePlan')">Release Plan</a></li>
+                                <li><a href="#ReleaseArtifacts" onclick="handleClick('ReleaseArtifacts')">Release
+                                        Artifacts</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li class="menu-list">
+                        <details>
+                            <summary>Application Bootstrap</summary>
+                            <ul>
+                                <li><a href="#ApplicationBootstrap1">Bootstrap</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                </ul>
+            </aside>
+
+            <div id="content">
+                <div id="ReleaseManager">
+                    <form class="release-entry-form" id="release-entry-form">
+                        <div class="form-div-group">
+                            <h2 class="form-heading">Release Entry</h2>
+                            <hr class="line" style="border-color: rgb(249, 247, 247); width: 100%;">
+                        </div>
+                        <div>
+                            <label for="releaseSelection">Release :</label>
+                            <select id="releaseSelection">
+                                <option value="January">January</option>
+                                <option value="February">February</option>
+                                <option value="March">March</option>
+                                <!-- Add more options for other months -->
+                            </select>
+                        </div>
+                        <div>
+                            <input type="radio" id="microApp" name="releaseType" value="MicroApp">
+                            <label for="microApp">MicroApp</label>
+
+                            <input type="radio" id="microService" name="releaseType" value="Microservice">
+                            <label for="microService">Micrservice</label>
+
+                        </div>
+                        <div>
+                            <input type="radio" id="fedGateway" name="releaseType" value="FedGateway">
+                            <label for="fedGateway">FedGateway</label>
+
+                            <input type="radio" id="apigeeGateway" name="releaseType" value="ApigeeGateway">
+                            <label for="apigeeGateway">ApigeeGateway</label>
+                        </div>
+                        <div class="form-div-group" id="microServiceOptions" style="display: none;">
+                            <label for="apiNames">Micro Service :</label>
+                            <select id="apiNames">
+                                <option value="UserProfileService">UserProfileService</option>
+                                <option value="OrderService">OrderService</option>
+                                <option value="InventoryService">InventoryService</option>
+                                <!-- Add more options for other API names -->
+                            </select>
+                            <br>
+
+                            <div class="form-div-group" style="text-align: left;">
+                                <div class="textarea-group">
+                                    <label for="features">Features :</label>
+                                    <textarea id="features" rows="10" cols="50" maxlength="10000"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-div-group">
+                                <label for="features">PerfTestRequired :</label>
+                                <input type="radio" id="perTestYes" name="perfTestType" value="Yes" checked>
+                                <label for="perTestYes">Yes</label>
+
+                                <input type="radio" id="perTestNo" name="perfTestType" value="No">
+                                <label for="perTestNo">No</label>
+                            </div>
+
+                            <div class="form-div-group" id="testReadyId">
+                                <label for="features">Test Readiness :</label>
+                                <input type="radio" id="testReady" name="testReadiness" value="Ready For Testing"
+                                    checked>
+                                <label for="perTestYes">Ready For Testing</label>
+
+                                <input type="radio" id="testNotReady" name="testReadiness" value="Not Ready">
+                                <label for="perTestNo">Not Ready</label>
+                            </div>
+
+                            <div class="form-div-group">
+                                <label for="releaseImageVersion">Release Image Version :</label>
+                                <input type="text" id="releaseImageVersion" rows="10" cols="50" maxlength="10000"
+                                    placeholder="release-2024.04.01.rel330"></input>
+                            </div>
+
+                            <div class="form-div-group">
+                                <div class="textarea-group">
+                                    <label for="releaseNotes">Release Notes :</label>
+                                    <textarea id="releaseNotes" rows="10" cols="50" maxlength="5000"></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="button-container">
+                            <input type="submit" value="Submit">
+                        </div>
+                </div>
+                </form>
+            </div>
+    </div>
+    <div id="ProjectBootstrap">
+        <!-- Add content for Project Bootstrap page -->
+    </div>
+    <div id="ContactUs">
+        <!-- Add content for Contact Us page -->
+    </div>
+    </div>
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Set Release Manager as the default page
+            document.getElementById("ReleaseManager").style.display = "block";
+
+            document.getElementById("microService").addEventListener("click", function () {
+                // Show API options when microServiceOptions radio button is clicked
+                document.getElementById("microServiceOptions").style.display = "block";
+            });
+
+            document.getElementById("release-entry-form").addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                var urlParams = new URLSearchParams(window.location.search);
+                var username = urlParams.get('username');
+                var testReadyRadio = document.getElementById('testReady');
+                var testNotReadyRadio = document.getElementById('testNotReady');
+
+                if (username === "devuser") {
+                    var testReady = testReadyRadio.checked ? testReadyRadio.value : testNotReadyRadio.value;
+                    window.location.href = "/html/teamReleaseEntryTable.html?releaseId=1234&serviceName=UserProfileService&type=newEntry&username=" + username + "&testReady=" + testReady;
+                } else {
+                    window.location.href = "/html/teamReleaseEntryTable.html?releaseId=1234&serviceName=UserProfileService&type=newEntry&username=" + username;
+                }
+
+            });
+        });
+
+        function handleClick(id) {
+
+            var urlParams = new URLSearchParams(window.location.search);
+            var username = urlParams.get('username');
+
+            if (id === "ReleaseEntry") {
+                window.location.href = "/html/createReleaseEntry.html?username=" + username;
+            } else if (id === "ReleaseCalendar") {
+                window.location.href = "/html/releaseCalendar.html"
+            } else if (id === "ReleasePlan") {
+                window.location.href = "/html/releasePlan.html"
+            } else if (id === "ReleaseTaskList") {
+                window.location.href = "/html/releaseTaskList.html"
+            } else if (id === "ReleaseArtifacts") {
+                window.location.href = "/html/teamReleaseEntryTable.html?releaseId=1234&serviceName=UserProfileService&type=newEntry&username=" + username;
+            }
+
+        }
+    </script>
+    </main>
+    </div>
+
+</body>
+
+</html>
