@@ -27,12 +27,28 @@
         <main class="main">
             <aside>
                 <ul>
-                    <li class="menu-list"><button class="btn btn-menu" onclick="location.href='#ReleaseManager'">Release
-                            Manager</button>
+                    <li class="menu-list">
+                        <details>
+                            <summary>Release Manager</summary>
+                            <ul>
+                                <li><a href="#ReleaseEntry" onclick="handleClick('ReleaseEntry')">Release Entry</a></li>
+                                <li><a href=" #ReleaseCalendar" onclick="handleClick('ReleaseCalendar')">Release
+                                        Calendar</a></li>
+                                <li><a href="#ReleaseList" onclick="handleClick('ReleaseTaskList')">Task List</a></li>
+                                <li><a href="#ReleasePlan" onclick="handleClick('ReleasePlan')">Release Plan</a></li>
+                                <li><a href="#ReleaseArtifacts" onclick="handleClick('ReleaseArtifacts')">Release
+                                        Artifacts</a></li>
+                            </ul>
+                        </details>
                     </li>
-                    <li class="menu-list"><button class="btn btn-menu"
-                            onclick="location.href='#ApplicationBootstrap'">Application
-                            Bootstrap</button></li>
+                    <li class="menu-list">
+                        <details>
+                            <summary>Application Bootstrap</summary>
+                            <ul>
+                                <li><a href="#ApplicationBootstrap1">Bootstrap</a></li>
+                            </ul>
+                        </details>
+                    </li>
                 </ul>
             </aside>
 
@@ -178,6 +194,8 @@
     </div>
 
     </div>
+
+    <script src="/js/config.js"></script>
     <script>
 
         document.addEventListener("DOMContentLoaded", function () {
@@ -226,6 +244,25 @@
             // }
 
         });
+
+        function handleClick(id) {
+
+            var urlParams = new URLSearchParams(window.location.search);
+            var username = urlParams.get('username');
+
+            if (id === "ReleaseEntry") {
+                window.location.href = config.baseUrl + "/html/createReleaseEntry.html?username=" + username;
+            } else if (id === "ReleaseCalendar") {
+                window.location.href = config.baseUrl + "/html/releaseCalendar.html"
+            } else if (id === "ReleasePlan") {
+                window.location.href = config.baseUrl + "/html/releasePlan.html"
+            } else if (id === "ReleaseTaskList") {
+                window.location.href = config.baseUrl + "/html/releaseTaskList.html"
+            } else if (id === "ReleaseArtifacts") {
+                window.location.href = config.baseUrl + "/html/teamReleaseEntryTable.html?releaseId=1234&serviceName=UserProfileService&type=newEntry&username=" + username;
+            }
+
+        }
     </script>
     </main>
     </div>

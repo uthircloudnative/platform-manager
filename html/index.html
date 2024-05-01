@@ -40,18 +40,20 @@
         </footer>
     </div>
 
+    <script src="/js/config.js"></script>
     <script>
+
         // Add your JavaScript code here
         document.getElementById("login-form").addEventListener("submit", function (event) {
             event.preventDefault();
             // Perform login logic here
             // If login is successful, redirect to another HTML file based on input login username
             var username = document.getElementById('username').value;
-            var baseUrl = window.location.hostname === "localhost" ? "" : "/platform-manager";
+            //var baseUrl = window.location.hostname === "localhost" ? "" : "/platform-manager";
             if (username === "devuser") {
-                window.location.href = baseUrl + "/html/createReleaseEntry.html?username=" + username;
+                window.location.href = config.baseUrl + "/html/createReleaseEntry.html?username=" + username;
             } else {
-                window.location.href = baseUrl + "teamReleaseEntryTable.html?username=" + username;
+                window.location.href = config.baseUrl + "teamReleaseEntryTable.html?username=" + username;
             }
         });
     </script>

@@ -148,6 +148,7 @@
         <!-- Add content for Contact Us page -->
     </div>
     </div>
+    <script src="/js/config.js"></script>
     <script>
 
         document.addEventListener("DOMContentLoaded", function () {
@@ -169,9 +170,9 @@
 
                 if (username === "devuser") {
                     var testReady = testReadyRadio.checked ? testReadyRadio.value : testNotReadyRadio.value;
-                    window.location.href = "/html/teamReleaseEntryTable.html?releaseId=1234&serviceName=UserProfileService&type=newEntry&username=" + username + "&testReady=" + testReady;
+                    window.location.href = config.baseUrl + "/html/teamReleaseEntryTable.html?releaseId=1234&serviceName=UserProfileService&type=newEntry&username=" + username + "&testReady=" + testReady;
                 } else {
-                    window.location.href = "/html/teamReleaseEntryTable.html?releaseId=1234&serviceName=UserProfileService&type=newEntry&username=" + username;
+                    window.location.href = config.baseUrl + "/html/teamReleaseEntryTable.html?releaseId=1234&serviceName=UserProfileService&type=newEntry&username=" + username;
                 }
 
             });
@@ -183,15 +184,15 @@
             var username = urlParams.get('username');
 
             if (id === "ReleaseEntry") {
-                window.location.href = "/html/createReleaseEntry.html?username=" + username;
+                window.location.href = config.baseUrl + "/html/createReleaseEntry.html?username=" + username;
             } else if (id === "ReleaseCalendar") {
-                window.location.href = "/html/releaseCalendar.html"
+                window.location.href = config.baseUrl + "/html/releaseCalendar.html"
             } else if (id === "ReleasePlan") {
-                window.location.href = "/html/releasePlan.html"
+                window.location.href = config.baseUrl + "/html/releasePlan.html"
             } else if (id === "ReleaseTaskList") {
-                window.location.href = "/html/releaseTaskList.html"
+                window.location.href = config.baseUrl + "/html/releaseTaskList.html"
             } else if (id === "ReleaseArtifacts") {
-                window.location.href = "/html/teamReleaseEntryTable.html?releaseId=1234&serviceName=UserProfileService&type=newEntry&username=" + username;
+                window.location.href = config.baseUrl + "/html/teamReleaseEntryTable.html?releaseId=1234&serviceName=UserProfileService&type=newEntry&username=" + username;
             }
 
         }

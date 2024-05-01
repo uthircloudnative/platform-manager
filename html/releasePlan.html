@@ -33,10 +33,12 @@
                             <summary>Release Manager</summary>
                             <ul>
                                 <li><a href="#ReleaseEntry" onclick="handleClick('ReleaseEntry')">Release Entry</a></li>
-                                <li><a href="#ReleaseCalendar" onclick="handleClick('ReleaseCalendar')">Release
+                                <li><a href=" #ReleaseCalendar" onclick="handleClick('ReleaseCalendar')">Release
                                         Calendar</a></li>
-                                <li><a href="#ReleaseList" onclick="handleClick('ReleaseList')">Task List</a></li>
+                                <li><a href="#ReleaseList" onclick="handleClick('ReleaseTaskList')">Task List</a></li>
                                 <li><a href="#ReleasePlan" onclick="handleClick('ReleasePlan')">Release Plan</a></li>
+                                <li><a href="#ReleaseArtifacts" onclick="handleClick('ReleaseArtifacts')">Release
+                                        Artifacts</a></li>
                             </ul>
                         </details>
                     </li>
@@ -210,8 +212,26 @@
                 </div>
             </div>
 
+            <script src="/js/config.js"></script>
             <script>
-                // Add your JavaScript code here
+                function handleClick(id) {
+
+                    var urlParams = new URLSearchParams(window.location.search);
+                    var username = urlParams.get('username');
+
+                    if (id === "ReleaseEntry") {
+                        window.location.href = config.baseUrl + "/html/createReleaseEntry.html?username=" + username;
+                    } else if (id === "ReleaseCalendar") {
+                        window.location.href = config.baseUrl + "/html/releaseCalendar.html"
+                    } else if (id === "ReleasePlan") {
+                        window.location.href = config.baseUrl + "/html/releasePlan.html"
+                    } else if (id === "ReleaseTaskList") {
+                        window.location.href = config.baseUrl + "/html/releaseTaskList.html"
+                    } else if (id === "ReleaseArtifacts") {
+                        window.location.href = config.baseUrl + "/html/teamReleaseEntryTable.html?releaseId=1234&serviceName=UserProfileService&type=newEntry&username=" + username;
+                    }
+
+                }
 
 
             </script>
