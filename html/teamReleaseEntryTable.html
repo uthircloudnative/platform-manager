@@ -81,8 +81,7 @@
                         </tr>
                         <tr>
                             <td style="border: 1px solid white; padding: 5px; text-align: center;">
-                                <a id="modifyLink" href="/html/modifyReleaseEntry.html?username=qauser"
-                                    style="color: rgb(48, 157, 12);">1234</a>
+                                <a id="modifyLink" style="color: rgb(48, 157, 12);">1234</a>
                             </td>
                             <td style="border: 1px solid white; padding: 5px; text-align: center;">UserProfileService
                             </td>
@@ -261,8 +260,14 @@
             } else if (id === "ReleaseArtifacts") {
                 window.location.href = config.baseUrl + "/html/teamReleaseEntryTable.html?releaseId=1234&serviceName=UserProfileService&type=newEntry&username=" + username;
             }
-
         }
+
+        window.onload = function () {
+            var modifyLink = document.getElementById("modifyLink");
+            var baseUrl = config.baseUrl;
+            modifyLink.href = baseUrl + modifyLink.getAttribute('href');
+        }
+
     </script>
     </main>
     </div>
